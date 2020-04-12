@@ -1,4 +1,3 @@
-export interface Repo {
-  name: string;
-  repos_url: string;
+export class Repo {
+  constructor(public full_name:string, public url: string, public description: string){}
 }

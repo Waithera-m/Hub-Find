@@ -1,6 +1,10 @@
-export interface User {
-  login: string;
-  avatar_url: string;
-  followers: number;
-  following: number;
+export class User {
+  constructor(
+    public login:string, 
+    public followers:number, 
+    public public_repos:number, 
+    public avatar_url:string, 
+    public following:number, 
+    public url:string,
+  ){}
 }

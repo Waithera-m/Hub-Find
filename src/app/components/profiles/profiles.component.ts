@@ -9,12 +9,14 @@ import { UserService } from '../../services/user.service';
 })
 export class ProfilesComponent implements OnInit {
   user:User;
-  username: string;
+ 
 
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(user => {this.user = user; console.log(this.user)})
+    this.userService.userRequest();
+    this.user = this.userService.user
+    
   }
 
 }

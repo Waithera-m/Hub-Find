@@ -32,7 +32,23 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <img src={{user.avatar_url}}>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{user.avatar_url}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">User Name:</h5>
+          <p class="card-text">{{user.login}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item badge">Repositories: {{user.public_repos}}</li>
+          <li class="list-group-item badge">Followers: {{user.followers}}</li>
+          <li class="list-group-item badge">Following: {{user.following}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">{{user.url}}</a>
+        </div>
+      </div>
+      
+      
     </div>
   </div>
 </div>

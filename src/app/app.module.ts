@@ -12,6 +12,7 @@ import { UserService } from './services/user.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ProfilesComponent,
     NotFoundComponent,
     AboutComponent,
-    NavigationComponent
+    NavigationComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

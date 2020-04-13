@@ -16,7 +16,9 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+h2{
+  margin-top: 5px;
+}
 .containerUn {
   width: 100%;
   padding-right: 15px;

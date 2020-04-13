@@ -26,8 +26,10 @@ export class ProfilesComponent implements OnInit {
     //get repositories
     this.userService.repoRequest()
     this.repo = this.userService.repo;
+
+    this.spinner.hide();
     
-    console.log(this.repo);
+    // console.log(this.repo);
    }
 
   returnProfile(){
@@ -49,7 +51,7 @@ export class ProfilesComponent implements OnInit {
   ngOnInit() {
     
 
-    this.spinner.hide();
+    
   }
  
 

@@ -11,13 +11,15 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { UserService } from './services/user.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutComponent } from './components/about/about.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfilesComponent,
     NotFoundComponent,
-    AboutComponent
+    AboutComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

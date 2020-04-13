@@ -67,12 +67,13 @@
       <h3>Repositories</h3>
       <div *ngIf="user">
         <div class="card">
+          <div class="card-title">
+          </div>
           <div class="card-block">
             <ul *ngFor="let repo of userService.repo">
               <h5 class="badge badge-dark">{{this.repo.full_name}}</h5>
               <p>{{this.repo.description}}</p>
-              <a href="{{repo.url}" target="_blank"></a>
-              <!-- {{repo}} -->
+              <a href="{{this.repo.html_url}}" target="_blank">View Repo</a>
             </ul>
           </div>
         </div>

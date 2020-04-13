@@ -16,14 +16,14 @@ export class UserService {
   
   user: User;
   repo: Repo;
-  repos: Repo[]=[];
+  repos: Repo[];
   
 
   constructor(private http:HttpClient) {
    
     this.user = new User("", 0, 0, "", 0, "");
     this.repo = new Repo("", "", "");
-    this.repos= [];
+    this.repos = [];
   }
 
   userRequest(){
@@ -57,6 +57,7 @@ export class UserService {
         reject(error)
       })
     })
+    
     return promise
   }
 
@@ -68,12 +69,18 @@ export class UserService {
     }
     let promise = new Promise((resolve, reject)=>{
       this.http.get<repoResponse>(this.userUrl + this.username +'/repos?access_token=' + environment.api_key).toPromise().then(response => {
+        this.repos.push(response)
         this.repo.full_name = response.full_name
         this.repo.url = response.url
         this.repo.description = response.description
+        
+        // console.log(response)
+        console.log(this.repos)
+        
 
         resolve()
-      }, 
+      },
+      
       error => {
         this.repo.full_name = "WePizzaYou"
         this.repo.description = "The web application allows users to place their pizza orders and view the total charge"

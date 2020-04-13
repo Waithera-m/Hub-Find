@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { UserService } from './services/user.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfilesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

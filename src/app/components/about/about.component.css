@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 0;
+  margin-left: 0;
+  height: 1000px;
+  background-image: url("https://bit.ly/2RyfKMu");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: white;
+}

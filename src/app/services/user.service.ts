@@ -4,7 +4,7 @@ import { Repo } from '../models/repo';
 import { HttpClient } from '@angular/common/http';
 import {environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { stringify } from 'querystring';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +15,9 @@ export class UserService {
 
   userUrl: string = 'https://api.github.com/users/'
   
-  user: User;
-  repo: Repo;
-  repos: Repo[];
+  user:User;
+  repo:Repo;
+  repos:Repo[]=[];
   
 
   constructor(private http:HttpClient) {
@@ -50,19 +50,19 @@ export class UserService {
         resolve()
       },
       error => {
-        this.user.login = "Waithera-m"
+        this.user.login = "error"
         this.user.followers = 0
         this.user.public_repos = 0
         this.user.avatar_url = "https://avatars3.githubusercontent.com/u/60571734?v=4"
         this.user.following = 0
-        this.user.url = "https://api.github.com/users/Waithera-m"
+        this.user.url = "error"
 
         reject(error)
       })
     })
     
     return promise
-  }
+  };
 
   repoRequest(){
 
@@ -71,18 +71,10 @@ export class UserService {
       url:string;
       description:string;
     }
-    if(this.username = this.username){}
+    
     let promise = new Promise((resolve, reject)=>{
       this.http.get<repoResponse>(this.userUrl + this.username +'/repos?access_token=' + environment.api_key).toPromise().then(response => {
-        this.repo = response
-        this.repo.full_name = response.full_name
-        this.repo.url = response.url
-        this.repo.description = response.description
-        
-        // console.log(response)
-        // console.log(this.repos)
-        
-
+        this.repo = response;
         resolve()
       },
       

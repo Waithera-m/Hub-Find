@@ -65,19 +65,18 @@
     </div>
     <div class="col-md-6">
       <h3>Repositories</h3>
-      <!-- <div *ngIf="user"> -->
+      <div *ngIf="user">
         <div class="card">
           <div class="card-block">
-            <ul *ngFor="let repo of repos">
-              <li>{{this.repo.full_name}}</li>
-              <li>{{this.repo.description}}</li>
-              <li><a href="{{repo.url}" target="_blank"></a></li>
-              {{this.repo}}
+            <ul *ngFor="let repo of userService.repo">
+              <h5 class="badge badge-dark">{{this.repo.full_name}}</h5>
+              <p>{{this.repo.description}}</p>
+              <a href="{{repo.url}" target="_blank"></a>
+              <!-- {{repo}} -->
             </ul>
           </div>
         </div>
-        
-      <!-- </div> -->
+      </div>
     </div>
   </div>
 </div>

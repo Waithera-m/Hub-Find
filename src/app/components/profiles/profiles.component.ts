@@ -12,41 +12,45 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class ProfilesComponent implements OnInit {
   user:User;
-  repos: Repo[];
+  repos:Repo [];
   repo:Repo;
   username:string;
  
 
-  constructor(public userService:UserService, private spinner:NgxSpinnerService) { }
-
-  ngOnInit() {
-    this.spinner.show()
-
+  constructor(public userService:UserService, private spinner:NgxSpinnerService) {
+    //get user
+    this.spinner.show();
     this.userService.userRequest()
     this.user = this.userService.user;
-    
-    
 
+    //get repositories
     this.userService.repoRequest()
-    this.repos = this.userService.repos
-    console.log(this.repos)
+    this.repo = this.userService.repo;
     
-    
-    this.spinner.hide();
-  }
+    console.log(this.repo);
+   }
+
   returnProfile(){
     
     this.userService.changeUser(this.username);
     this.userService.userRequest()
-    this.user = this.userService.user;
+    this.user = this.userService.user
 
     this.userService.repoRequest()
-    this.repos = this.userService.repos;
-    console.log(this.repos)
-    
-    
-    
+    this.repo = this.userService.repo;
+  }
+  userRequest(){
+   
+  }
+  repoRequest(){
     
   }
+
+  ngOnInit() {
+    
+
+    this.spinner.hide();
+  }
+ 
 
 }

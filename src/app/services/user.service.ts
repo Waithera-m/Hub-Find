@@ -4,6 +4,7 @@ import { Repo } from '../models/repo';
 import { HttpClient } from '@angular/common/http';
 import {environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -64,20 +65,22 @@ export class UserService {
   }
 
   repoRequest(){
+
     interface repoResponse{
       full_name:string;
       url:string;
       description:string;
     }
+    if(this.username = this.username){}
     let promise = new Promise((resolve, reject)=>{
       this.http.get<repoResponse>(this.userUrl + this.username +'/repos?access_token=' + environment.api_key).toPromise().then(response => {
-        this.repos.push(response)
+        this.repo = response
         this.repo.full_name = response.full_name
         this.repo.url = response.url
         this.repo.description = response.description
         
         // console.log(response)
-        console.log(this.repos)
+        // console.log(this.repos)
         
 
         resolve()

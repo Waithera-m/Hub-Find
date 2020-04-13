@@ -12,14 +12,14 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class ProfilesComponent implements OnInit {
   user:User;
-  repos;
+  repos: Repo[];
   repo:Repo;
   username:string;
  
 
-  constructor(private userService:UserService, private spinner:NgxSpinnerService) { }
+  constructor(public userService:UserService, private spinner:NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.spinner.show()
 
     this.userService.userRequest()
@@ -31,8 +31,8 @@ export class ProfilesComponent implements OnInit {
     this.repos = this.userService.repos
     console.log(this.repos)
     
-    this.spinner.hide();
     
+    this.spinner.hide();
   }
   returnProfile(){
     
@@ -42,8 +42,9 @@ export class ProfilesComponent implements OnInit {
 
     this.userService.repoRequest()
     this.repos = this.userService.repos;
+    console.log(this.repos)
     
-   
+    
     
     
   }

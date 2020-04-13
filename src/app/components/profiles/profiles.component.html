@@ -26,14 +26,19 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <div class="input-group" id="nameSearch">
-        <input type="text" class="form-control" placeholder="Search for a GitHub user" [(ngModel)]="username" name="username" (keyup)="returnProfile()">
-        <div class="input-group-append">
-          <button class="btn btn-dark" type="button">
-            <i class="fa fa-search"></i>
-          </button>
+      <form id="findUser">
+        <div class="form-group">
+          <div class="input-group" id="nameSearch">
+            <input type="text" class="form-control" placeholder="Search for a GitHub user" [(ngModel)]="username" name="username" (keyup)="returnProfile()">
+            <div class="input-group-append">
+              <button class="btn btn-dark" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
+     
     </div>
     <div class="col-md-3"></div>
   </div>
@@ -60,11 +65,19 @@
     </div>
     <div class="col-md-6">
       <h3>Repositories</h3>
-      <div *ngIf="repo">
-        <div *ngFor="let repo of repos | keyvalue">
-          <p>{{repo.description}}</p>
+      <!-- <div *ngIf="user"> -->
+        <div class="card">
+          <div class="card-block">
+            <ul *ngFor="let repo of repos">
+              <li>{{this.repo.full_name}}</li>
+              <li>{{this.repo.description}}</li>
+              <li><a href="{{repo.url}" target="_blank"></a></li>
+              {{this.repo}}
+            </ul>
+          </div>
         </div>
-      </div>
+        
+      <!-- </div> -->
     </div>
   </div>
 </div>

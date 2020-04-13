@@ -20,7 +20,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="input-group" id="nameSearch">
-        <input type="text" class="form-control" placeholder="Search for a GitHub user">
+        <input type="text" class="form-control" placeholder="Search for a GitHub user" [(ngModel)]="username" name="username" (keyup)="returnProfile()">
         <div class="input-group-append">
           <button class="btn btn-dark" type="button">
             <i class="fa fa-search"></i>

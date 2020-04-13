@@ -13,16 +13,16 @@ export class UserService {
   private username='Waithera-m';
 
   userUrl: string = 'https://api.github.com/users/'
-
+  
   user: User;
   repo: Repo;
   repos: Repo[];
   
 
   constructor(private http:HttpClient) {
-    this.username = '';
+   
     this.user = new User("", 0, 0, "", 0, "");
-    this.repo = new Repo("", "", "")
+    this.repo = new Repo("", "", "");
   }
 
   userRequest(){
@@ -35,7 +35,7 @@ export class UserService {
       url:string;
     }
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<githubUserResponse>(this.userUrl + 'Waithera-m' + '?access_token=' + environment.api_key).toPromise().then(response=>{
+      this.http.get<githubUserResponse>(this.userUrl + this.username + '?access_token=' + environment.api_key).toPromise().then(response=>{
         this.user.login = response.login
         this.user.followers = response.followers
         this.user.public_repos = response.public_repos
@@ -51,7 +51,7 @@ export class UserService {
         this.user.public_repos = 0
         this.user.avatar_url = "https://avatars3.githubusercontent.com/u/60571734?v=4"
         this.user.following = 0
-        this.user.url = "https://api.github.com/users/Waithera-m"
+        this.user.url = "https://api.github.com/users/Enaika"
 
         reject(error)
       })
@@ -66,7 +66,7 @@ export class UserService {
       description:string;
     }
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<repoResponse>(this.userUrl + 'Waithera-m' +'/repos' + '?access_token=' + environment.api_key).toPromise().then(response => {
+      this.http.get<repoResponse>(this.userUrl + this.username +'/repos?access_token=' + environment.api_key).toPromise().then(response => {
         this.repo.full_name = response.full_name
         this.repo.url = response.url
         this.repo.description = response.description
@@ -82,6 +82,10 @@ export class UserService {
       })
     })
     return promise
+  }
+
+  changeUser(username: string){
+    this.username = username;
   }
 
 }

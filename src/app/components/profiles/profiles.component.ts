@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Repo } from '../../models/repo';
 import { UserService } from '../../services/user.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -16,9 +17,10 @@ export class ProfilesComponent implements OnInit {
   username:string;
  
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
+    
     this.userService.userRequest()
     this.user = this.userService.user;
 
@@ -29,12 +31,15 @@ export class ProfilesComponent implements OnInit {
     
   }
   returnProfile(){
+    this.spinner.show();
     this.userService.changeUser(this.username);
     this.userService.userRequest()
     this.user = this.userService.user;
 
     this.userService.repoRequest()
     this.repo = this.userService.repo;
+    this.spinner.hide();
   }
+    
 
 }

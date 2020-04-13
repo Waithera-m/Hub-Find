@@ -51,6 +51,7 @@
           <li class="list-group-item badge">Repositories: {{user.public_repos}}</li>
           <li class="list-group-item badge">Followers: {{user.followers}}</li>
           <li class="list-group-item badge">Following: {{user.following}}</li>
+          <li class="list-group-item badge">Created: {{user.created_at | joined}}</li>
         </ul>
         <div class="card-body">
           <a href="#" class="card-link">{{user.url}}</a>

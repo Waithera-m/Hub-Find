@@ -6,5 +6,6 @@ export class User {
     public avatar_url:string, 
     public following:number, 
     public url:string,
+    public created_at:Date
   ){}
 }

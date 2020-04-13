@@ -13,6 +13,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HighlightDirective } from './highlight.directive';
+import { JoinedPipe } from './joined.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { HighlightDirective } from './highlight.directive';
     NotFoundComponent,
     AboutComponent,
     NavigationComponent,
-    HighlightDirective
+    HighlightDirective,
+    JoinedPipe,
+    
+    
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class UserService {
 
   constructor(private http:HttpClient) {
    
-    this.user = new User("", 0, 0, "", 0, "");
+    this.user = new User("", 0, 0, "", 0, "", new Date);
     this.repo = new Repo("", "", "");
     this.repos = [];
   }
@@ -34,6 +34,7 @@ export class UserService {
       avatar_url:string;
       following:number;
       url:string;
+      created_at:Date;
     }
     let promise = new Promise((resolve, reject)=>{
       this.http.get<githubUserResponse>(this.userUrl + this.username + '?access_token=' + environment.api_key).toPromise().then(response=>{
@@ -43,6 +44,7 @@ export class UserService {
         this.user.avatar_url = response.avatar_url
         this.user.following = response.following
         this.user.url = response.url
+        this.user.created_at = response.created_at
 
         resolve()
       },

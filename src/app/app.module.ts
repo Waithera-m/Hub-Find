@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { UserService } from './services/user.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

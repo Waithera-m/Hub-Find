@@ -26,7 +26,7 @@ export class ProfilesComponent implements OnInit {
 
     this.userService.repoRequest()
     this.repo = this.userService.repo
-    console.log(this.repo)
+   
     
     
   }
@@ -37,7 +37,8 @@ export class ProfilesComponent implements OnInit {
     this.user = this.userService.user;
 
     this.userService.repoRequest()
-    this.repo = this.userService.repo;
+    this.repos = this.userService.repos;
+    console.log(this.repos)
     this.spinner.hide();
   }
     

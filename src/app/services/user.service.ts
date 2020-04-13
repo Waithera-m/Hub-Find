@@ -16,13 +16,14 @@ export class UserService {
   
   user: User;
   repo: Repo;
-  repos: Repo[];
+  repos: Repo[]=[];
   
 
   constructor(private http:HttpClient) {
    
     this.user = new User("", 0, 0, "", 0, "");
     this.repo = new Repo("", "", "");
+    this.repos= [];
   }
 
   userRequest(){
@@ -51,7 +52,7 @@ export class UserService {
         this.user.public_repos = 0
         this.user.avatar_url = "https://avatars3.githubusercontent.com/u/60571734?v=4"
         this.user.following = 0
-        this.user.url = "https://api.github.com/users/Enaika"
+        this.user.url = "https://api.github.com/users/Waithera-m"
 
         reject(error)
       })

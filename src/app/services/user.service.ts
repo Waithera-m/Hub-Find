@@ -22,7 +22,7 @@ export class UserService {
 
   constructor(private http:HttpClient) {
    
-    this.user = new User("", 0, 0, "", 0, "", new Date);
+    this.user = new User("", 0, 0, "", 0, "", new Date, "");
     this.repo = new Repo("", "", "");
     this.repos = [];
   }
@@ -36,6 +36,7 @@ export class UserService {
       following:number;
       url:string;
       created_at:Date;
+      html_url:string;
     }
     let promise = new Promise((resolve, reject)=>{
       this.http.get<githubUserResponse>(this.userUrl + this.username + '?access_token=' + environment.api_key).toPromise().then(response=>{
@@ -46,6 +47,7 @@ export class UserService {
         this.user.following = response.following
         this.user.url = response.url
         this.user.created_at = response.created_at
+        this.user.html_url = response.html_url
 
         resolve()
       },

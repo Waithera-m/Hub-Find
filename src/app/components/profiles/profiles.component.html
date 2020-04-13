@@ -59,7 +59,7 @@
           <li class="list-group-item badge">Created: {{user.created_at | joined}}</li>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">{{user.url}}</a>
+          <a href="{{user.html_url}}" target="_blank" class="badge badge-dark">View Profile on GitHub</a>
         </div>
       </div>
     </div>
@@ -73,6 +73,8 @@
             <ul *ngFor="let repo of userService.repo">
               <h5 class="badge badge-dark">{{this.repo.full_name}}</h5>
               <p>{{this.repo.description}}</p>
+              <span class="badge">{{this.repo.watchers}} Watcher</span>
+								<span class="badge">{{this.repo.forks}} Forks</span>
               <a href="{{this.repo.html_url}}" target="_blank">View Repo</a>
             </ul>
           </div>

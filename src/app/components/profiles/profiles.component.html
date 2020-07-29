@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container">
     <h1 class="display-3">Hub-Find</h1>
-    <p>Search and view GitHub users' profiles</p>
+    <p class="display-5">Search and view GitHub users' profiles</p>
     <p><a routerLink="/about" class="btn btn-dark btn-lg">Learn More</a></p>
   </div>
 </div>
@@ -42,45 +42,50 @@
     </div>
     <div class="col-md-3"></div>
   </div>
-  <h2>User's Details</h2>
+  <hr>
+  <h2 class="text-center">User's Details</h2>
   <hr>
   <div class="row">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      <div class="card" style="width: 22rem;">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="card">
         <img class="card-img-top" src={{user.avatar_url}} alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title" appHighlight>Username: {{user.login}}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item badge">Repositories: {{user.public_repos}}</li>
-          <li class="list-group-item badge">Followers: {{user.followers}}</li>
-          <li class="list-group-item badge">Following: {{user.following}}</li>
-          <li class="list-group-item badge">Created: {{user.created_at | joined}}</li>
-        </ul>
-        <div class="card-body">
-          <a href="{{user.html_url}}" target="_blank" class="badge badge-dark">View Profile on GitHub</a>
+          <h5 class="card-title text-center mb-3">Username: {{user.login}}</h5>
+          
+          <div class="row offset-sm-1">
+            <p class="btn btn-dark btn-sm mr-2">Repositories: {{user.public_repos}}</p>
+            <p class="btn btn-dark btn-sm mr-2">Followers: {{user.followers}}</p>
+            <p class="btn btn-dark btn-sm mr-2">Following: {{user.following}}</p>
+            <p class="btn btn-dark btn-sm mr-2">Created: {{user.created_at | joined}}</p>
+          </div>
+          <div class="row offset-sm-1" style="align-content: center;">
+            <a href="{{user.html_url}}" target="_blank" class="btn btn-info">View Profile on GitHub</a>
+           
+          </div>
+          
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <h3>Repositories</h3>
+    <div class="col-md-5">
       <div *ngIf="user">
-        <div class="card">
-          <div class="card-title">
-          </div>
-          <div class="card-block">
-            <ul *ngFor="let repo of userService.repo">
-              <h5 class="badge badge-dark">{{this.repo.full_name}}</h5>
-              <p>{{this.repo.description}}</p>
-              <span class="badge">{{this.repo.watchers}} Watcher</span>
-								<span class="badge">{{this.repo.forks}} Forks</span>
-              <a href="{{this.repo.html_url}}" target="_blank">View Repo</a>
-            </ul>
-          </div>
+        <div>
+          <ul *ngFor="let repo of userService.repo">
+            <div class="card border-info border-9 mb-3">
+              <div class="card-body">
+                <h5 class="display-5">{{this.repo.full_name}}</h5>
+                <hr>
+                <p class="card-text">{{this.repo.description}}</p>
+                <span class="btn btn-dark btn-sm mr-2">{{this.repo.watchers}} Watcher</span>
+                  <span class="btn btn-dark btn-sm mr-2">{{this.repo.forks}} Forks</span>
+                <a href="{{this.repo.html_url}}" target="_blank">View Repo</a>
+              </div>
+            </div>
+          </ul>
         </div>
       </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 <footer class="container">

@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body{
-  font-family: 'Gotu', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #instructions {
   text-align: center;

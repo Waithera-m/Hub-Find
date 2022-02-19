@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Repo } from '../models/repo';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -27,6 +27,14 @@ export class UserService {
     this.repos = [];
   }
 
+  generateHeaders(): HttpHeaders {
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    //.set("Access-Control-Allow_origin", "*")
+    .set("Authorization", `token=${environment.api_key}`);
+    return headers;
+  }
+
   userRequest(){
     interface githubUserResponse{
       login:string;
@@ -39,7 +47,7 @@ export class UserService {
       html_url:string;
     }
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<githubUserResponse>(this.userUrl + this.username + '?access_token=' + environment.api_key).toPromise().then(response=>{
+      this.http.get<githubUserResponse>(this.userUrl + this.username, {headers: this.generateHeaders()}).toPromise().then(response=>{
         this.user.login = response.login
         this.user.followers = response.followers
         this.user.public_repos = response.public_repos
@@ -49,7 +57,7 @@ export class UserService {
         this.user.created_at = response.created_at
         this.user.html_url = response.html_url
 
-        resolve()
+        //resolve()
       },
       error => {
         this.user.login = "error"
@@ -75,9 +83,9 @@ export class UserService {
     }
     
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<repoResponse>(this.userUrl + this.username +'/repos?access_token=' + environment.api_key).toPromise().then(response => {
+      this.http.get<repoResponse>(this.userUrl + this.username +'/repos' , {headers: this.generateHeaders()}).toPromise().then(response => {
         this.repo = response;
-        resolve()
+        //resolve()
       },
       
       error => {

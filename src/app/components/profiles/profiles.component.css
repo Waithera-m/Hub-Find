@@ -42,6 +42,10 @@ h2{
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.shadowed {
+  box-shadow: 5px 5px 10px #17a2b8;
+}
+
 @media (min-width: 480px) {
   .containerUn {
     max-width: 2000px;

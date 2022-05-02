@@ -85,7 +85,7 @@ export class UserService {
     let promise = new Promise((resolve, reject)=>{
       this.http.get<repoResponse>(this.userUrl + this.username +'/repos' , {headers: this.generateHeaders()}).toPromise().then(response => {
         this.repo = response;
-        //resolve()
+        //resolve(this.repo)
       },
       
       error => {

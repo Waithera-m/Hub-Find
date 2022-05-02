@@ -4,7 +4,6 @@ import { Repo } from '../../models/repo';
 import { UserService } from '../../services/user.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
-
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
@@ -24,7 +23,8 @@ export class ProfilesComponent implements OnInit {
     this.user = this.userService.user;
 
     //get repositories
-    this.userService.repoRequest()
+    this.userService.repoRequest();
+    console.log("here: ", this.userService.repoRequest());
     this.repo = this.userService.repo;
 
     this.spinner.hide();
@@ -38,7 +38,8 @@ export class ProfilesComponent implements OnInit {
     this.userService.userRequest()
     this.user = this.userService.user
 
-    this.userService.repoRequest()
+    this.userService.repoRequest();
+    console.log(this.userService.repoRequest())
     this.repo = this.userService.repo;
   }
   userRequest(){
